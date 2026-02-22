@@ -2,35 +2,171 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "What is the main objective of the knapsack problem?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "To minimize the number of items selected",
+        "b": "To maximize the total value without exceeding capacity",
+        "c": "To maximize the total weight of items",
+        "d": "To select all available items"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "The knapsack problem focuses on value optimization, not minimizing item count.",
+        "b": "The correct objective is to maximize total value while respecting the weight constraint.",
+        "c": "Maximizing weight is not the goal; weight is a limiting factor.",
+        "d": "Selecting all items may exceed the knapsack capacity."
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+  "question": "What is the main idea behind the greedy approach used in the Fractional Knapsack problem?",
+  "answers": {
+    "a": "Select items with the highest weight first",
+    "b": "Select items randomly until capacity is filled",
+    "c": "Select items with the highest value-to-weight ratio first",
+    "d": "Select items with the lowest value first"
+  },
+  "explanations": {
+    "a": "Weight alone does not guarantee maximum value.",
+    "b": "Random selection does not ensure optimal results.",
+    "c": "The greedy strategy selects items with the highest value-to-weight ratio to maximize value gain.",
+    "d": "Lower value items are not prioritized in optimization."
+  },
+  "correctAnswer": "c",
+  "difficulty": "beginner"
+},
+    {
+  "question": "Which step is performed first in the Fractional Knapsack algorithm?",
+  "answers": {
+    "a": "Fill the knapsack randomly",
+    "b": "Sort items by value-to-weight ratio",
+    "c": "Select the heaviest item first",
+    "d": "Calculate total weight of all items"
+  },
+  "explanations": {
+    "a": "Random selection does not guarantee optimal results.",
+    "b": "Items are sorted by value-to-weight ratio to ensure greedy optimal selection.",
+    "c": "Selecting the heaviest item first may reduce total value.",
+    "d": "Total weight calculation is not the first algorithmic step."
+  },
+  "correctAnswer": "b",
+  "difficulty": "beginner"
+},
+    {
+      "question": "What does the value-to-weight ratio of an item represent?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Total profit of the item",
+        "b": "Total weight of the item",
+        "c": "Value gained per unit weight",
+        "d": "Remaining capacity of the knapsack"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Total profit alone does not consider the weight of the item.",
+        "b": "The ratio includes both value and weight.",
+        "c": "The value-to-weight ratio shows how much value is obtained per unit weight.",
+        "d": "The ratio is unrelated to knapsack capacity."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Why is sorting required in the Fractional Knapsack algorithm?",
+      "answers": {
+        "a": "To arrange items by increasing weight",
+        "b": "To arrange items by decreasing value",
+        "c": "To prioritize items with higher value-to-weight ratio",
+        "d": "To remove duplicate items"
+      },
+      "explanations": {
+        "a": "Weight alone is not sufficient for optimal selection.",
+        "b": "Value alone does not ensure optimal use of capacity.",
+        "c": "Sorting by value-to-weight ratio ensures maximum value gain.",
+        "d": "Duplicate items are not a concern in this problem."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What happens when an item does not completely fit into the remaining knapsack capacity in Fractional Knapsack?",
+      "answers": {
+        "a": "The item is skipped",
+        "b": "The knapsack is discarded",
+        "c": "A fraction of the item is taken",
+        "d": "The algorithm stops without adding value"
+      },
+      "explanations": {
+        "a": "Skipping the item may reduce the total value.",
+        "b": "The knapsack is not discarded.",
+        "c": "A fraction of the item is taken to fully utilize remaining capacity.",
+        "d": "The algorithm adds value using a fractional selection."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which property makes the greedy approach optimal for Fractional Knapsack?",
+      "answers": {
+        "a": "Overlapping subproblems",
+        "b": "Greedy choice property",
+        "c": "Recursive structure",
+        "d": "Exhaustive search"
+      },
+      "explanations": {
+        "a": "Overlapping subproblems are associated with dynamic programming.",
+        "b": "The greedy choice property ensures local optimal choices lead to a global optimum.",
+        "c": "Recursion alone does not guarantee optimality.",
+        "d": "Exhaustive search is inefficient."
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following constraints must always be satisfied in the knapsack problem?",
+      "answers": {
+        "a": "Total value must be minimized",
+        "b": "Total weight must exceed capacity",
+        "c": "Total weight must not exceed capacity",
+        "d": "All items must be selected"
+      },
+      "explanations": {
+        "a": "The objective is to maximize value, not minimize it.",
+        "b": "Exceeding capacity violates the constraint.",
+        "c": "The total weight must always remain within the knapsack capacity.",
+        "d": "Selecting all items may exceed capacity."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following is an application of the Fractional Knapsack problem?",
+      "answers": {
+        "a": "Finding shortest path in a graph",
+        "b": "Sorting a list of numbers",
+        "c": "Cargo loading and resource allocation",
+        "d": "Searching in a database"
+      },
+      "explanations": {
+        "a": "Shortest path problems use graph algorithms.",
+        "b": "Sorting is not an optimization under constraints.",
+        "c": "Fractional knapsack is widely used in cargo and resource allocation problems.",
+        "d": "Database searching is unrelated to knapsack optimization."
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "What type of problem is the Fractional Knapsack problem classified as?",
+      "answers": {
+        "a": "Decision problem",
+        "b": "Searching problem",
+        "c": "Optimization problem",
+        "d": "Sorting problem"
+      },
+      "explanations": {
+        "a": "Decision problems focus on yes/no answers.",
+        "b": "Searching problems aim to find an element.",
+        "c": "Fractional Knapsack aims to optimize (maximize) total value.",
+        "d": "Sorting is only a step, not the goal."
       },
       "correctAnswer": "c",
       "difficulty": "beginner"

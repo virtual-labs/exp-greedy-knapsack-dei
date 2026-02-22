@@ -1,1 +1,553 @@
-/* You CSS goes in here */
+:root {
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --secondary-color: #64748b;
+    --accent-color: #0ea5e9;
+    --panel-bg: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --radius: 8px;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-body);
+    background: #e2e8f0;
+    /* Darker background for better contrast */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center 6px;
+    color: var(--text-main);
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* MAIN LAYOUT */
+.app-container {
+    max-width: 1400px;
+    margin: 50px auto 100px auto;
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    height: 82vh;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr 340px;
+    gap: 15px;
+    /* Reduced gap */
+    flex: 1;
+    overflow: hidden;
+}
+
+/* PANELS */
+.glass-panel {
+    background: var(--panel-bg);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    /* Stronger shadow */
+    border: 1px solid #94a3b8;
+    /* Darker border */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    /* Reduced min heights specifically */
+}
+
+.panel-header {
+    padding: 10px 15px;
+    /* Compact */
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    margin: 0;
+    font-size: 0.95rem;
+    /* Slightly smaller */
+    font-weight: 700;
+    color: #334155;
+    text-transform: uppercase;
+}
+
+/* INPUT STYLES */
+.input-panel {
+    padding: 0;
+}
+
+.input-panel .input-group {
+    padding: 10px 15px;
+    /* Compact */
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.input-panel label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.input-panel input[type="text"],
+.input-panel input[type="number"] {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* BUTTONS */
+.btn-group {
+    padding: 5px 15px;
+    display: flex;
+    gap: 8px;
+    justify-content: stretch;
+}
+
+.sub-controls {
+    padding: 5px 15px;
+}
+
+button {
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.85rem;
+    flex: 1;
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+}
+
+.secondary-btn {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.secondary-btn:hover {
+    background: #e2e8f0;
+}
+
+.outline-btn {
+    background: white;
+    border: 1px solid #ef4444;
+    color: #ef4444;
+}
+
+.outline-btn:hover {
+    background: #fef2f2;
+}
+
+/* PROCESSING VISUALIZATION */
+.processing-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.viz-container {
+    flex: 2;
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    overflow-y: auto;
+    /* User request: Make middle section scrollable */
+    position: relative;
+    justify-content: start;
+    /* Reset from evenly */
+}
+
+.items-pool-section {
+    width: 100%;
+    border-bottom: 1px dashed #cbd5e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    margin-top: 25px;
+    order: 2;
+}
+
+.section-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-style: italic;
+    width: 100%;
+    text-align: center;
+}
+
+.items-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* ITEM CARD */
+.item-card {
+    width: 60px;
+    /* Smaller */
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    text-align: center;
+    padding: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.item-card.active {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.item-card.taken {
+    background: #f0fdf4;
+    border-color: #22c55e;
+    opacity: 0.7;
+}
+
+.item-visual {
+    width: 100%;
+    height: 30px;
+    border-radius: 2px;
+    margin-bottom: 2px;
+    color: white;
+    font-size: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.item-info {
+    font-size: 0.65rem;
+    color: #334155;
+}
+
+.item-ratio {
+    font-size: 0.6rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* KNAPSACK */
+.knapsack-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 15px;
+    order: 1;
+}
+
+.knapsack-container {
+    width: 100%;
+    height: 40px;
+    /* Slightly smaller but not 35 */
+    border: 2px solid #334155;
+    border-radius: 4px;
+    background: #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.knapsack-fill {
+    height: 100%;
+    width: 0%;
+    background: repeating-linear-gradient(45deg, var(--accent-color), var(--accent-color) 10px, #0891b2 10px, #0891b2 20px);
+    transition: width 0.3s ease-in-out;
+}
+
+.knapsack-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #0f172a;
+    pointer-events: none;
+    z-index: 5;
+    font-size: 0.8rem;
+}
+
+/* LEGEND */
+/* LEGEND */
+.viz-legend {
+    position: relative;
+    /* User preferred scrollable option with no overlap */
+    bottom: auto;
+    left: auto;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: transparent;
+    padding: 5px 0;
+    font-size: 0.75rem;
+    color: #64748b;
+    border-top: 1px dotted #e2e8f0;
+    padding-top: 10px;
+    order: 3;
+}
+
+
+
+/* PSEUDOCODE - COMPACT */
+.pseudocode-section {
+    flex: 0 0 auto;
+    background: #e3edf0;
+    color: #334155;
+    padding: 10px 15px;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+    overflow-y: visible;
+    border-top: 1px solid var(--border-color);
+    height: auto;
+    /* Restored from fixed 140px */
+}
+
+.pseudocode-section h3 {
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: 0.8rem;
+    color: #324c70;
+}
+
+.steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.steps-list li {
+    padding: 3px 6px;
+    margin-bottom: 2px;
+    border-radius: 2px;
+}
+
+.steps-list li.active-step {
+    background: #3b82f6;
+    color: white;
+}
+
+/* OUTPUT */
+.output-panel .result-card {
+    text-align: center;
+    padding: 10px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    color: var(--text-main);
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.total-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.total-value::before {
+    content: '₹';
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-right: 2px;
+}
+
+.result-card h3 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.result-details {
+    padding: 0 10px;
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* RESULT TABLE STYLE */
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.result-table th,
+.result-table td {
+    padding: 5px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.result-table th {
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.result-table td:last-child {
+    text-align: right;
+    font-weight: 600;
+}
+
+/* LOGS */
+.log-console {
+    background: #ffffff;
+    color: #334155;
+    font-family: 'Consolas', monospace;
+    font-size: 0.75rem;
+    padding: 10px;
+    border-top: 1px solid #e2e8f0;
+    height: 150px;
+    /* Restored from 90px */
+    display: flex;
+    flex-direction: column;
+}
+
+.log-area {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 4px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.status-tag {
+    background: #d1fae5;
+    color: #065f46;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+        overflow: visible;
+    }
+
+    .app-container {
+        height: auto;
+    }
+}
+
+
+
+
+.knapsack-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: auto;
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.knapsack-container {
+    width: 100%;
+    height: 45px;
+    border: 2px solid #334155;
+    border-radius: 4px;
+    background: #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.knapsack-fill {
+    height: 100%;
+    width: 0%;
+    background: transparent;
+    transition: width 0.3s ease-in-out;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.knapsack-label {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: #1e293b;
+    /* Darker for visibility */
+    font-size: 0.85rem;
+    margin-top: -5px;
+    margin-bottom: 0px;
+    z-index: 10;
+    /* High z-index to ensure visibility */
+}
+
+/* Faded button style */
+button.faded {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+button {
+    transition: opacity 0.3s ease;
+}
+.knapsack-container {
+    cursor: default;
+}
+.processing-panel {
+    position: relative;   /* anchor for popup */
+}

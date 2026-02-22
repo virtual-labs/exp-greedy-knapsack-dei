@@ -2,38 +2,174 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "After starting the simulation, why are items processed in descending order of value-to-weight ratio?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "To minimize the number of items selected",
+        "b": "To ensure maximum value is obtained per unit weight",
+        "c": "To reduce execution time only",
+        "d": "To match the input order"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "The objective is not to minimize item count but to maximize value.",
+        "b": "Selecting items with higher value-to-weight ratio first ensures optimal value gain.",
+        "c": "Execution time is not the primary reason for sorting.",
+        "d": "Items are reordered based on ratio, not input order."
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+      "correctAnswer": "b",
+      "difficulty": "easy"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "What does the knapsack fill indicator represent during the simulation?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Total value accumulated so far",
+        "b": "Number of items selected",
+        "c": "Current weight filled relative to maximum capacity",
+        "d": "Execution time of the algorithm"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "Value is shown separately in the Results panel.",
+        "b": "The fill indicator is based on weight, not item count.",
+        "c": "The indicator visualizes how much of the knapsack capacity is filled by weight.",
+        "d": "Execution time is not visualized using the fill bar."
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "difficulty": "easy"
+    },
+    {
+      "question": "In Manual Mode, what happens when the selected item cannot fully fit into the remaining knapsack capacity?",
+      "answers": {
+        "a": "The item is skipped",
+        "b": "The simulation terminates immediately",
+        "c": "A fraction of the item is added to fill the remaining capacity",
+        "d": "The item is added fully, exceeding capacity"
+      },
+      "explanations": {
+        "a": "Fractional Knapsack does not skip valuable items unnecessarily.",
+        "b": "The simulation continues until capacity is filled.",
+        "c": "A fractional part is taken to exactly utilize the remaining capacity.",
+        "d": "The algorithm never exceeds knapsack capacity."
+      },
+      "correctAnswer": "c",
+      "difficulty": "medium"
+    },
+    {
+      "question": "Why does the simulation stop automatically once the knapsack reaches full capacity?",
+      "answers": {
+        "a": "No more items are left",
+        "b": "Further addition would violate the capacity constraint",
+        "c": "The maximum value has already been displayed",
+        "d": "The animation speed reaches zero"
+      },
+      "explanations": {
+        "a": "Items may still exist but cannot be added.",
+        "b": "Once capacity is full, adding more weight is not allowed.",
+        "c": "Displaying value is not the stopping condition.",
+        "d": "Animation speed does not affect termination."
+      },
+      "correctAnswer": "b",
+      "difficulty": "medium"
+    },
+    {
+      "question": "In the Results table, what does a value like \"66.7%\" taken for an item indicate?",
+      "answers": {
+        "a": "The item was skipped",
+        "b": "The item was fully selected",
+        "c": "Only a fraction of the item was added to the knapsack",
+        "d": "The item had the highest ratio"
+      },
+      "explanations": {
+        "a": "Skipped items show no percentage taken.",
+        "b": "Fully selected items show 100%.",
+        "c": "A percentage less than 100% indicates fractional inclusion.",
+        "d": "Ratio is shown separately, not as a percentage taken."
+      },
+      "correctAnswer": "c",
+      "difficulty": "medium"
+    },
+    {
+      "question": "During Auto Play mode, which component explains the decision taken at each step of the algorithm?",
+      "answers": {
+        "a": "Items Panel",
+        "b": "Knapsack Panel",
+        "c": "Execution Log",
+        "d": "Input Parameters panel"
+      },
+      "explanations": {
+        "a": "The Items Panel shows sorted items, not decisions.",
+        "b": "The Knapsack Panel shows filling visualization only.",
+        "c": "The Execution Log describes each decision taken by the algorithm.",
+        "d": "Input panel is only for user input."
+      },
+      "correctAnswer": "c",
+      "difficulty": "medium"
+    },
+    {
+      "question": "If two items have the same value-to-weight ratio, how does the simulation handle their selection?",
+      "answers": {
+        "a": "Both are ignored",
+        "b": "They are selected randomly",
+        "c": "Any order can be chosen without affecting optimality",
+        "d": "The heavier item is always selected first"
+      },
+      "explanations": {
+        "a": "Items with valid ratios are not ignored.",
+        "b": "Selection is deterministic, not random.",
+        "c": "Equal ratios provide equal value per unit weight, so order does not affect the result.",
+        "d": "Weight alone does not determine priority."
+      },
+      "correctAnswer": "c",
+      "difficulty": "difficult"
+    },
+    {
+      "question": "Why does the Fractional Knapsack simulation always produce an optimal solution using a greedy approach?",
+      "answers": {
+        "a": "Because all combinations are tested",
+        "b": "Because the problem satisfies the greedy choice property",
+        "c": "Because the knapsack size is fixed",
+        "d": "Because recursion is used internally"
+      },
+      "explanations": {
+        "a": "The simulation does not test all combinations.",
+        "b": "The greedy choice property guarantees optimality for Fractional Knapsack.",
+        "c": "Fixed capacity alone does not ensure optimality.",
+        "d": "Recursion is not required for this solution."
+      },
+      "correctAnswer": "b",
+      "difficulty": "difficult"
+    },
+    {
+      "question": "Which observation from the simulation distinguishes Fractional Knapsack from 0/1 Knapsack?",
+      "answers": {
+        "a": "Items are sorted before selection",
+        "b": "Dynamic programming is used",
+        "c": "Items can be partially selected",
+        "d": "Execution time is lower"
+      },
+      "explanations": {
+        "a": "Sorting can be used in multiple algorithms.",
+        "b": "Dynamic programming is used in 0/1 Knapsack, not Fractional Knapsack.",
+        "c": "Partial (fractional) selection is the defining characteristic.",
+        "d": "Execution time alone does not define the problem type."
+      },
+      "correctAnswer": "c",
+      "difficulty": "difficult"
+    },
+    {
+      "question": "In the simulation, what happens when the knapsack capacity is greater than the sum of all item weights?",
+"answers": {
+"a": "Items are repeatedly selected until the knapsack is full",
+"b": "The simulation selects all items once and stops with unused capacity",
+"c": "The item with the highest value-to-weight ratio is duplicated",
+"d": "Fractional selection is forced to fill the remaining capacity"
+},
+"explanations": {
+"a": "Items are not allowed to be repeated in Fractional Knapsack.",
+"b": "Each item is selected at most once, and execution stops when no items remain.",
+"c": "Items cannot be duplicated in this problem.",
+"d": "Fractional selection occurs only when an item partially fits, not to force full capacity usage."
+},
+"correctAnswer": "b",
+"difficulty": "difficult"
     }
   ]
 }

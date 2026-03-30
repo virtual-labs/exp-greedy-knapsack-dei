@@ -1,0 +1,7 @@
+
+/home/runner/work/exp-greedy-knapsack-dei/exp-greedy-knapsack-dei/experiment/simulation/js/main.js
+  179:15  warning  'maxW' is assigned a value but never used       no-unused-vars
+  574:10  warning  'closeKnapsackPopup' is defined but never used  no-unused-vars
+
+✖ 2 problems (0 errors, 2 warnings)
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Fractional Knapsack Simulation</title>
+
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+<!-- Knapsack Explanation Popup -->
+<div id="knapsackPopup" style="
+    display:none;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 2px solid #3b82f6;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    padding: 16px 18px;
+    width: 420px;
+    z-index: 50;
+">
+    <h3 style="margin:0 0 8px;color:#1e40af;">
+        Why is the Knapsack not fully filled?
+    </h3>
+
+    <p style="font-size:0.85rem; color:#334155; line-height:1.5; margin:0;">
+        The total weight of all available items is
+        <b>less than the knapsack capacity</b>.
+        Since no more items are available (even fractionally),
+        the knapsack remains partially empty.
+    </p>
+
+    <p style="font-size:0.85rem; color:#334155; line-height:1.5;">
+        This is a <b>valid optimal outcome</b> in the Fractional Knapsack algorithm.
+    </p>
+
+    <div style="text-align:right;">
+        <button onclick="closeKnapsackPopup()" style="
+            padding:5px 12px;
+            background:#3b82f6;
+            color:white;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+            font-size:0.8rem;
+        ">
+            OK
+        </button>
+    </div>
+</div>
+
+
+<body>
+
+	<div class="app-container">
+		<div class="main-grid">
+
+			<!-- INPUT PANEL -->
+			<div class="glass-panel input-panel">
+				<div class="panel-header">
+					<h2>Input Parameters</h2>
+				</div>
+
+				<div class="input-group">
+					<label for="capacity">Knapsack Capacity (Max 200)</label>
+					<input type="number" id="capacity" value="50" min="1" max="200" placeholder="1-200">
+				</div>
+
+				<div class="input-group">
+					<label for="weights">Item Weights (Max 15 items, Max w=100)</label>
+					<input type="text" id="weights" value="10, 20, 30" placeholder="e.g. 10, 20, 30">
+				</div>
+
+				<div class="input-group">
+					<label for="values">Item Values (Max v=2000)</label>
+					<input type="text" id="values" value="60, 100, 120" placeholder="e.g. 60, 100, 120">
+				</div>
+
+				<div class="input-group">
+					<label for="speedRange">Animation Speed</label>
+					<input type="range" id="speedSlider" min="50" max="2000" step="1" value="800" />
+
+					<div class="range-labels">
+					</div>
+				</div>
+
+				<div class="btn-group">
+					<button id="autoPlayBtn" class="primary-btn">Auto Play</button>
+					<button id="pauseBtn" class="secondary-btn">Pause</button>
+				</div>
+				<div class="btn-group sub-controls">
+					<button id="prevBtn" class="secondary-btn">Prev Step</button>
+					<button id="nextBtn" class="secondary-btn">Next Step</button>
+				</div>
+				<div class="btn-group">
+					<button id="randomBtn" class="outline-btn">Randomize</button>
+					<button id="resetBtn" class="outline-btn">Reset</button>
+				</div>
+			</div>
+
+			<!-- PROCESSING PANEL -->
+			<div class="glass-panel processing-panel">
+				<div class="panel-header">
+					<h2>Processing & Visualization</h2>
+					<span id="statusTag" class="status-tag">Ready</span>
+				</div>
+
+				<div class="viz-container" id="vizContainer">
+
+					<div class="items-pool-section">
+						<div class="section-label">Items in descending order of Value/Weight ratio:</div>
+						<div id="itemsContainer" class="items-row">
+							<!-- JS will inject items here -->
+						</div>
+					</div>
+
+					<div class="knapsack-wrapper">
+						<div class="knapsack-container">
+							<div id="knapsackFill" class="knapsack-fill"></div>
+						</div>
+						<div class="knapsack-label">Knapsack (<span id="currentWeightDisplay">0</span> / <span
+								id="capacityDisplay">50</span>)</div>
+					</div>
+
+					<div class="viz-legend">
+						<span><b>W:</b> Weight</span>
+						<span><b>V:</b> Value</span>
+						<span><b>R:</b> Value/Weight Ratio</span>
+					</div>
+				</div>
+
+				<!-- Algorithm Steps -->
+				<div class="pseudocode-section">
+					<h3>Algorithm Steps</h3>
+					<ul class="steps-list">
+						<li id="step-0">1. Calculate Ratio (Value / Weight) for all items.</li>
+						<li id="step-1">2. Sort items by Ratio (Descending).</li>
+						<li id="step-2">3. Iterate through sorted items.</li>
+						<li id="step-3">4. If item fits, take FULL item.</li>
+						<li id="step-4">5. Else, take FRACTION to fill capacity.</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- OUTPUT PANEL -->
+			<div class="glass-panel output-panel">
+				<div class="panel-header">
+					<h2>Results</h2>
+				</div>
+
+				<div class="result-card">
+					<h3>Total Value</h3>
+					<div id="totalValueCheck" class="total-value">0</div>
+				</div>
+
+				<div class="result-details">
+					<div id="resultList" class="result-list">
+						<!-- Table will go here -->
+						<table class="result-table">
+							<thead>
+								<tr>
+									<th>Item</th>
+									<th>Taken</th>
+									<th>Value</th>
+								</tr>
+							</thead>
+							<tbody id="resultBody">
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="log-console">
+					<h3>Execution Log</h3>
+					<div id="logArea" class="log-area"></div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="js/main.js"></script>
+<script src="../assets/js/iframeResize.js"></script>
+        
+        </body>
+
+</html>

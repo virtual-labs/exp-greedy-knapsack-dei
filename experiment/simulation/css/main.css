@@ -23,20 +23,21 @@ body {
     background-attachment: fixed;
     background-position: center 6px;
     color: var(--text-main);
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* MAIN LAYOUT */
 .app-container {
     max-width: 1400px;
-    margin: 50px auto 100px auto;
-    padding: 10px 10px 10px 10px;
+    margin: 30px auto 40px auto;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    height: 82vh;
+    min-height: 100vh;
     box-sizing: border-box;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .main-grid {
@@ -44,8 +45,8 @@ body {
     grid-template-columns: 340px 1fr 340px;
     gap: 15px;
     /* Reduced gap */
-    flex: 1;
-    overflow: hidden;
+    min-height: auto;
+    overflow: visible;
 }
 
 /* PANELS */
@@ -57,7 +58,7 @@ body {
     /* Darker border */
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
     /* Reduced min heights specifically */
 }
 
@@ -484,6 +485,42 @@ button {
 
     .app-container {
         height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        margin: 12px 8px 40px;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .glass-panel {
+        min-height: auto;
+    }
+
+    .processing-panel .viz-container,
+    .result-details,
+    .log-console {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .log-console {
+        height: 170px;
+    }
+
+    #knapsackPopup {
+        position: fixed;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 20px);
+        max-width: 420px;
+        z-index: 999;
     }
 }
 

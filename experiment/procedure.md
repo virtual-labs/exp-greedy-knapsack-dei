@@ -26,7 +26,7 @@
 ### 1.4 Input Validation
 Ensure that:
 - The number of weights and values are equal.
-- All inputs are valid and within a reasonable range for smooth visualization.
+- Ensure that all the inputs are positive numbers and within the specified constraint ranges.
 
 (Optional)  
 - Click the **Randomize** button to automatically generate sample weights and values.

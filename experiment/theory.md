@@ -1,6 +1,6 @@
 ## Introduction
 
-The main objective of fractional knapsack problem is to select items in such a way that the **total value obtained is maximized** while ensuring that the **total weight of the selected items does not exceed the capacity of the knapsack**.
+The main objective of the fractional knapsack problem is to select items in such a way that the **total value obtained is maximized** while ensuring that the **total weight of the selected items does not exceed the capacity of the knapsack**.
 
 This problem is widely used to demonstrate the application of **greedy algorithms**, as it satisfies the greedy choice property and optimal substructure. The fractional nature of the problem allows items to be divided, making it computationally efficient and conceptually intuitive.
 
@@ -12,27 +12,29 @@ Consider a knapsack with a maximum weight capacity W. There are n items availabl
 - a **weight** wᵢ
 - a **value (profit)** vᵢ
 
+In the fractional knapsack problem, items can be divided, meaning we can take any fraction of an item.
+
 The goal is to select items (or fractions of items) such that:
 - The total weight of selected items is less than or equal to W.
 - The total value obtained is maximized.
 
-Mathematically:
+Let xᵢ represent the fraction of item i selected, where 0 ≤ xᵢ ≤ 1.
 
 **Objective:**
 Maximize the total value obtained from the selected items.
 
-Total Value = v1 + v2 + v3 + ... + vn
+Total Value = x₁v₁ + x₂v₂ + x₃v₃ + ... + xₙvₙ
 
 **Subject to the constraint:**
 The total weight of the selected items must not exceed the knapsack capacity W.
 
-Total Weight ≤ W
-
+x₁w₁ + x₂w₂ + x₃w₃ + ... + xₙwₙ ≤ W
 
 Where:
-- vi represents the value of item i.
-- wi represents the weight of item i.
-- n is the total number of items
+- vᵢ represents the value of item i.
+- wᵢ represents the weight of item i.
+- xᵢ represents the fraction of item i selected (0 ≤ xᵢ ≤ 1).
+- n is the total number of items.
 
 ## Fractional Property 
 
@@ -120,7 +122,7 @@ After computing the value-to-weight ratios and sorting in descending order, the 
 
 Available items are:
 
-| Item | Weight (wᵢ) | Value (vᵢ) | Ratio (vᵢ / wᵢs) |
+| Item | Weight (wᵢ) | Value (vᵢ) | Ratio (vᵢ / wᵢ) |
 |------|---------------|--------------|------------------|
 | P    | 10            | 50           | 5.0              |
 | Q    | 20            | 80           | 4.0              |

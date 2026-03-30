@@ -36,7 +36,7 @@
   "difficulty": "beginner"
 },
     {
-  "question": "Which step is performed first in the Fractional Knapsack algorithm?",
+  "question": "Among the following operations, which operation is performed first in the Fractional Knapsack algorithm?",
   "answers": {
     "a": "Fill the knapsack randomly",
     "b": "Sort items by value-to-weight ratio",
@@ -55,18 +55,18 @@
     {
       "question": "What does the value-to-weight ratio of an item represent?",
       "answers": {
-        "a": "Total profit of the item",
+        "a": "Value gained per unit weight",        
         "b": "Total weight of the item",
-        "c": "Value gained per unit weight",
+        "c": "Total profit of the item",
         "d": "Remaining capacity of the knapsack"
       },
       "explanations": {
-        "a": "Total profit alone does not consider the weight of the item.",
+        "a": " The value-to-weight ratio shows how much value is obtained per unit weight.",        
         "b": "The ratio includes both value and weight.",
-        "c": "The value-to-weight ratio shows how much value is obtained per unit weight.",
+        "c": "Total profit alone does not consider the weight of the item.",
         "d": "The ratio is unrelated to knapsack capacity."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
@@ -74,16 +74,16 @@
       "answers": {
         "a": "To arrange items by increasing weight",
         "b": "To arrange items by decreasing value",
-        "c": "To prioritize items with higher value-to-weight ratio",
-        "d": "To remove duplicate items"
+        "c": "To remove duplicate items",      
+        "d": "To prioritize items with higher value-to-weight ratio"
       },
       "explanations": {
         "a": "Weight alone is not sufficient for optimal selection.",
         "b": "Value alone does not ensure optimal use of capacity.",
-        "c": "Sorting by value-to-weight ratio ensures maximum value gain.",
-        "d": "Duplicate items are not a concern in this problem."
+        "c": "Duplicate items are not a concern in this problem.",       
+        "d": "Sorting by value-to-weight ratio ensures maximum value gain."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     },
     {
@@ -123,18 +123,18 @@
     {
       "question": "Which of the following constraints must always be satisfied in the knapsack problem?",
       "answers": {
-        "a": "Total value must be minimized",
+        "a": "Total weight must not exceed capacity",             
         "b": "Total weight must exceed capacity",
-        "c": "Total weight must not exceed capacity",
+        "c": "Total value must be minimized",
         "d": "All items must be selected"
       },
       "explanations": {
-        "a": "The objective is to maximize value, not minimize it.",
+        "a": "The total weight must always remain within the knapsack capacity.",          
         "b": "Exceeding capacity violates the constraint.",
-        "c": "The total weight must always remain within the knapsack capacity.",
+        "c": "The objective is to maximize value, not minimize it.",
         "d": "Selecting all items may exceed capacity."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
@@ -159,16 +159,16 @@
       "answers": {
         "a": "Decision problem",
         "b": "Searching problem",
-        "c": "Optimization problem",
-        "d": "Sorting problem"
+        "c": "Sorting problem",      
+        "d": "Optimization problem"
       },
       "explanations": {
         "a": "Decision problems focus on yes/no answers.",
         "b": "Searching problems aim to find an element.",
-        "c": "Fractional Knapsack aims to optimize (maximize) total value.",
-        "d": "Sorting is only a step, not the goal."
+        "c": "Sorting is only a step, not the goal.",      
+        "d": "Fractional Knapsack aims to optimize (maximize) total value."
       },
-      "correctAnswer": "c",
+      "correctAnswer": "d",
       "difficulty": "beginner"
     }
   ]
